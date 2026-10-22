@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Untuk Istriku Tersayang, Ayu Amalia Shaliha❤️</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    /* Custom Styling & Animations */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fbcfe8 0%, #ffe4e6 50%, #f43f5e 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .font-serif-title {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .font-handwriting {
+      font-family: 'Dancing Script', cursive;
+    }
+
+    /* Ambient Floating Background Hearts */
+    .bg-heart {
+      position: absolute;
+      color: rgba(244, 63, 94, 0.25);
+      animation: floatUp linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(105vh) scale(0.5) rotate(0deg);
+        opacity: 0.2;
+      }
+      50% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.3) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Glassmorphism Card Effect */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 20px 50px rgba(225, 29, 72, 0.15);
+    }
+
+    /* Pulse Glow Effect for Main Button */
+    .pulse-heart {
+      animation: pulseGlow 2s infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: 0 0 15px rgba(244, 63, 94, 0.5);
+        transform: scale(1);
+      }
+      50% {
+        box-shadow: 0 0 25px rgba(244, 63, 94, 0.8);
+        transform: scale(1.03);
+      }
+    }
+
+    /* Evasive Button Transition */
+    #noBtn {
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    /* Cute Tooltip Popup */
+    .floating-tooltip {
+      position: absolute;
+      padding: 6px 14px;
+      background: #881337;
+      color: #fff;
+      font-size: 0.825rem;
+      border-radius: 20px;
+      white-space: nowrap;
+      pointer-events: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      animation: popIn 0.3s ease-out forwards;
+      z-index: 50;
+    }
+
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.5) translateY(10px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center p-4 min-h-screen relative overflow-hidden select-none">
+
+  <!-- Floating Hearts Background Container -->
+  <div id="heartContainer" class="fixed inset-0 pointer-events-none z-0"></div>
+
+  <!-- Audio Sound Box Toggle (Web Audio API Synthesized Music Box) -->
+  <button id="musicToggle" onclick="toggleAudio()" class="fixed top-5 right-5 z-50 bg-white/80 hover:bg-white text-rose-600 p-3 rounded-full shadow-lg border border-rose-200 transition-all flex items-center gap-2 text-sm font-medium">
+    <i id="musicIcon" class="fas fa-music text-rose-500 animate-bounce"></i>
+    <span id="musicText" class="hidden sm:inline">Lagu Romantis</span>
+  </button>
+
+  <!-- MAIN CARD CONTAINER -->
+  <main class="relative z-10 w-full max-w-lg">
+    
+    <!-- INITIAL QUESTION STATE CARD -->
+    <div id="questionCard" class="glass-card rounded-3xl p-6 sm:p-10 text-center transition-all duration-500 transform scale-100">
+      
+      <!-- Top Animated Illustration -->
+      <div class="relative w-28 h-28 mx-auto mb-6 flex items-center justify-center bg-rose-100 rounded-full shadow-inner">
+        <i class="fas fa-heart text-rose-500 text-5xl animate-pulse"></i>
+        <span class="absolute -top-1 -right-1 bg-rose-500 text-white text-xs px-2 py-0.5 rounded-full shadow">
+          Istriku
+        </span>
+      </div>
+
+      <!-- Header Title -->
+      <h1 class="font-serif-title text-2xl sm:text-3xl font-bold text-rose-950 mb-3 leading-snug">
+        Ungkapan Hati Untuk Istriku Tersayang
+      </h1>
+      
+      <!-- Subtitle Name -->
+      <div class="inline-block bg-rose-100 text-rose-700 font-semibold px-4 py-1 rounded-full text-base sm:text-lg mb-6 shadow-sm border border-rose-200">
+        ✨ Ayu Amalia ✨
+      </div>
+
+      <!-- The Big Question -->
+      <p class="text-gray-700 text-lg sm:text-xl font-medium mb-8 leading-relaxed">
+        AA mau tanya sesuatu nih...<br>
+        <span class="text-rose-600 font-bold">Apakah kmau masih cinta sama AA?</span> 🥺❤️
+      </p>
+
+      <!-- Interactive Choice Buttons -->
+      <div id="buttonArea" class="relative min-h-[120px] flex flex-col sm:flex-row items-center justify-center gap-4">
+        
+        <!-- Primary Yes Button -->
+        <button id="yesBtn" onclick="handleYesClick()" class="pulse-heart w-full sm:w-auto bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-semibold px-8 py-3.5 rounded-full shadow-xl transition-all duration-300 transform active:scale-95 flex items-center justify-center gap-2">
+          <i class="fas fa-heart"></i>
+          <span>Cinta Banget! ❤️</span>
+        </button>
+
+        <!-- Evasive No Button -->
+        <button id="noBtn" class="w-full sm:w-auto bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold px-6 py-3.5 rounded-full shadow transition-all duration-200 flex items-center justify-center gap-2">
+          <span>Enggak 😜</span>
+        </button>
+
+      </div>
+
+      <!-- Footer Microtext -->
+      <p class="text-xs text-rose-400 mt-8 italic">
+        Dibuat penuh cinta oleh Suamimu (AA) 🥰
+      </p>
+
+    </div>
+
+    <!-- SUCCESS LOVE LETTER CARD (Hidden Initially) -->
+    <div id="letterCard" class="hidden glass-card rounded-3xl p-6 sm:p-10 text-center transition-all duration-700 opacity-0 transform scale-90">
+      
+      <!-- Header Badge -->
+      <div class="inline-flex items-center gap-2 bg-rose-500 text-white px-4 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 shadow">
+        <i class="fas fa-envelope-open-heart"></i> Surat Cinta Untuk Ayu
+      </div>
+
+      <!-- Letter Title -->
+      <h2 class="font-serif-title text-2xl sm:text-3xl font-extrabold text-rose-950 mb-2">
+        Makasih ya, Sayang! ❤️
+      </h2>
+      <p class="font-handwriting text-2xl text-rose-600 mb-6">
+        Istriku, Ayu Amalia
+      </p>
+
+      <!-- Written Heartfelt Letter -->
+      <div class="text-left bg-white/70 p-5 sm:p-6 rounded-2xl border border-rose-100 shadow-inner space-y-4 text-gray-700 text-sm sm:text-base leading-relaxed mb-6 max-h-[50vh] overflow-y-auto">
+        <p>
+          <strong>Untuk Istriku Tersayang, Ayu Amalia,</strong>
+        </p>
+        <p>
+          Terima kasih ya sayang, sudah memilih untuk berjalan dan melangkah bersama aa. Menjalani setiap hari bersama kamu—dengan segala senyuman, tawa, bercanda, hingga cerita-cerita kecil kita—adalah kebahagiaan terbesar buat AA.
+        </p>
+        <p>
+          Menikah dan hidup bersamamu membuat hidup aa terasa jauh lebih bermakna. Ayu bukan cuma istri tercantik buat aa, tapi juga teman hidup, tempat pulang paling nyaman, dan penyemangat di kala AA lelah.
+        </p>
+        <p>
+          Semoga rumah tangga kita selalu dipenuhi keberkahan, kehangatan, kasih sayang yang tak pernah pudar, dan rasa saling mencintai sampai tua nanti.
+        </p>
+        <p class="font-semibold text-rose-700 pt-2">
+          I love you forever and always, Ayu Amalia! ❤️✨
+        </p>
+        <div class="text-right pt-2">
+          <span class="font-handwriting text-xl text-rose-600 font-bold block">
+            Suamimu yang selalu mencintaimu,
+          </span>
+          <span class="text-xs text-gray-500 font-sans">AA ❤️</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <button onclick="triggerLoveExplosion()" class="w-full sm:w-auto bg-rose-500 hover:bg-rose-600 text-white font-medium px-6 py-2.5 rounded-full shadow-lg transition-all flex items-center justify-center gap-2 text-sm">
+          <i class="fas fa-heart text-amber-300"></i>
+          <span>Kirim Hujan Cinta Lagi!</span>
+        </button>
+        <button onclick="resetView()" class="w-full sm:w-auto bg-rose-100 hover:bg-rose-200 text-rose-700 font-medium px-5 py-2.5 rounded-full transition-all text-sm">
+          <i class="fas fa-redo"></i>
+          <span>Ulangi dari Awal</span>
+        </button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    /* ==========================================================
+       1. AMBIENT BACKGROUND FLOATING HEARTS
+    ========================================================== */
+    function createAmbientHearts() {
+      const container = document.getElementById('heartContainer');
+      const heartIcons = ['fa-heart', 'fa-heart text-pink-400', 'fa-heart text-rose-300'];
+      const heartCount = 18;
+
+      for (let i = 0; i < heartCount; i++) {
+        const heart = document.createElement('i');
+        const randomIcon = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+        heart.className = `fas ${randomIcon} bg-heart`;
+        
+        // Randomize positioning & size
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (Math.random() * 6 + 6) + 's';
+        heart.style.animationDelay = (Math.random() * 5) + 's';
+        heart.style.fontSize = (Math.random() * 1.5 + 0.8) + 'rem';
+        
+        container.appendChild(heart);
+      }
+    }
+
+    /* ==========================================================
+       2. EVASIVE "ENGGAK" BUTTON LOGIC (TELEPORT + TOOLTIPS)
+    ========================================================== */
+    const noBtn = document.getElementById('noBtn');
+    let noClickAttempts = 0;
+
+    const cuteMessages = [
+      "Eits gak bisa! 😜",
+      "Tombol ini rusak deh kayaknya 😁",
+      "Masih coba lagi? Pilih 'Cinta Banget' dong!",
+      "kamu jahat deh mau pencet ini 🥺",
+      "Tetep gak bisa dipencet wlee 😛",
+      "Harus pilih Cinta Banget! ❤️"
+    ];
+
+    function moveNoButton(e) {
+      if (e) e.preventDefault();
+
+      noClickAttempts++;
+
+      // Make 'Cinta Banget' button grow bigger dynamically
+      const yesBtn = document.getElementById('yesBtn');
+      if (yesBtn) {
+        const scale = Math.min(1 + noClickAttempts * 0.08, 1.5);
+        yesBtn.style.transform = `scale(${scale})`;
+      }
+
+      // Make button position fixed so it can float freely around the screen
+      noBtn.style.position = 'fixed';
+
+      // Get screen boundaries
+      const padding = 60;
+      const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+      const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+
+      // Calculate new random position
+      const randomX = Math.max(padding, Math.floor(Math.random() * maxX));
+      const randomY = Math.max(padding, Math.floor(Math.random() * maxY));
+
+      noBtn.style.left = `${randomX}px`;
+      noBtn.style.top = `${randomY}px`;
+
+      // Show cute floating tooltip message
+      showTooltip(randomX, randomY, cuteMessages[noClickAttempts % cuteMessages.length]);
+    }
+
+    function showTooltip(x, y, text) {
+      // Remove previous tooltips
+      const oldTooltip = document.querySelector('.floating-tooltip');
+      if (oldTooltip) oldTooltip.remove();
+
+      const tooltip = document.createElement('div');
+      tooltip.className = 'floating-tooltip';
+      tooltip.innerText = text;
+      
+      // Position above the evasive button
+      tooltip.style.left = `${x}px`;
+      tooltip.style.top = `${y - 35}px`;
+
+      document.body.appendChild(tooltip);
+
+      setTimeout(() => {
+        if (tooltip) tooltip.remove();
+      }, 1800);
+    }
+
+    // Attach hover and touch events for both Desktop & Mobile
+    noBtn.addEventListener('mouseover', moveNoButton);
+    noBtn.addEventListener('touchstart', moveNoButton);
+    noBtn.addEventListener('click', moveNoButton);
+
+    /* ==========================================================
+       3. SUCCESS STATE ("CINTA BANGET") & CONFETTI
+    ========================================================== */
+    function handleYesClick() {
+      const questionCard = document.getElementById('questionCard');
+      const letterCard = document.getElementById('letterCard');
+
+      // Remove active tooltips if any
+      const tooltip = document.querySelector('.floating-tooltip');
+      if (tooltip) tooltip.remove();
+
+      // Fade out question card
+      questionCard.classList.add('opacity-0', 'scale-90');
+
+      setTimeout(() => {
+        questionCard.classList.add('hidden');
+        letterCard.classList.remove('hidden');
+
+        // Trigger smooth fade-in for letter
+        setTimeout(() => {
+          letterCard.classList.remove('opacity-0', 'scale-90');
+          letterCard.classList.add('opacity-100', 'scale-100');
+        }, 50);
+
+      }, 400);
+
+      // Trigger grand confetti & music
+      triggerLoveExplosion();
+      startMusicBox();
+    }
+
+    function triggerLoveExplosion() {
+      // Confetti burst from bottom corners
+      const duration = 3 * 1000;
+      const end = Date.now() + duration;
+
+      (function frame() {
+        confetti({
+          particleCount: 5,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 },
+          colors: ['#f43f5e', '#fb7185', '#ffe4e6', '#ffffff']
+        });
+        confetti({
+          particleCount: 5,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 },
+          colors: ['#f43f5e', '#fb7185', '#ffe4e6', '#ffffff']
+        });
+
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      })();
+    }
+
+    /* ==========================================================
+       4. RESET FUNCTIONALITY
+    ========================================================== */
+    function resetView() {
+      const questionCard = document.getElementById('questionCard');
+      const letterCard = document.getElementById('letterCard');
+
+      // Reset Evasive Button Position & Yes Button scale
+      noBtn.style.position = 'relative';
+      noBtn.style.left = 'auto';
+      noBtn.style.top = 'auto';
+      noClickAttempts = 0;
+
+      const yesBtn = document.getElementById('yesBtn');
+      if (yesBtn) yesBtn.style.transform = 'scale(1)';
+
+      // Transition Back
+      letterCard.classList.remove('opacity-100', 'scale-100');
+      letterCard.classList.add('opacity-0', 'scale-90');
+
+      setTimeout(() => {
+        letterCard.classList.add('hidden');
+        questionCard.classList.remove('hidden');
+
+        setTimeout(() => {
+          questionCard.classList.remove('opacity-0', 'scale-90');
+          questionCard.classList.add('opacity-100', 'scale-100');
+        }, 50);
+
+      }, 400);
+    }
+
+    /* ==========================================================
+       5. SYNTHESIZED ROMANTIC MUSIC BOX (Web Audio API)
+    ========================================================== */
+    let audioCtx = null;
+    let isPlayingAudio = false;
+    let musicInterval = null;
+
+    // Romantic music scale notes (Hz)
+    const notes = [261.63, 329.63, 392.00, 523.25, 440.00, 349.23, 329.63, 293.66];
+
+    function playMusicNote() {
+      if (!isPlayingAudio || !audioCtx) return;
+
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      const note = notes[Math.floor(Math.random() * notes.length)];
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(note, audioCtx.currentTime);
+
+      gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.8);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start();
+      osc.stop(audioCtx.currentTime + 1.8);
+    }
+
+    function toggleAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+
+      if (isPlayingAudio) {
+        isPlayingAudio = false;
+        clearInterval(musicInterval);
+        document.getElementById('musicText').innerText = "Mutar Musik";
+        document.getElementById('musicIcon').classList.remove('animate-bounce');
+      } else {
+        startMusicBox();
+      }
+    }
+
+    function startMusicBox() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+
+      isPlayingAudio = true;
+      document.getElementById('musicText').innerText = "Musik Dinyalakan ❤️";
+      document.getElementById('musicIcon').classList.add('animate-bounce');
+
+      clearInterval(musicInterval);
+      playMusicNote();
+      musicInterval = setInterval(playMusicNote, 600);
+    }
+
+    // Initialize ambient background hearts on load
+    window.onload = function () {
+      createAmbientHearts();
+    };
+  </script>
+</body>
+</html>
