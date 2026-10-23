@@ -1,31 +1,31 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Untuk Istriku Tersayang, Ayu Amalia ❤️</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Ajakan Etot Untuk Istriku, Ayu Amalia</title>
+  
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <!-- Canvas Confetti CDN -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- Google Fonts (Poppins, Playfair Display, Dancing Script) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,700;1,600&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* Custom Styling & Animations */
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fbcfe8 0%, #ffe4e6 50%, #f43f5e 100%);
+      background: linear-gradient(135deg, #fbcfe8 0%, #ffe4e6 40%, #f43f5e 100%);
       min-height: 100vh;
-      overflow-x: hidden;
+      overflow: hidden;
+      touch-action: manipulation;
     }
 
     .font-serif-title {
@@ -54,176 +54,200 @@
         opacity: 0.7;
       }
       100% {
-        transform: translateY(-10vh) scale(1.3) rotate(360deg);
+        transform: translateY(-10vh) scale(1.2) rotate(360deg);
         opacity: 0;
       }
     }
 
     /* Glassmorphism Card Effect */
     .glass-card {
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      box-shadow: 0 20px 50px rgba(225, 29, 72, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 20px 40px -12px rgba(225, 29, 72, 0.35);
     }
 
-    /* Pulse Glow Effect for Main Button */
-    .pulse-heart {
+    /* Pulse Glow Effect for Main Yes Button */
+    .pulse-glow {
       animation: pulseGlow 2s infinite;
     }
 
     @keyframes pulseGlow {
       0%, 100% {
-        box-shadow: 0 0 15px rgba(244, 63, 94, 0.5);
-        transform: scale(1);
+        box-shadow: 0 0 15px rgba(225, 29, 72, 0.6);
       }
       50% {
-        box-shadow: 0 0 25px rgba(244, 63, 94, 0.8);
-        transform: scale(1.03);
+        box-shadow: 0 0 28px rgba(225, 29, 72, 0.9);
       }
     }
 
-    /* Evasive Button Transition */
+    /* MULTI-DIRECTIONAL JUMP ANIMATIONS (Tanpa Efek Gepeng/Bulat) */
+    @keyframes jumpUp {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(-4deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+
+    @keyframes jumpDown {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(20px) rotate(4deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+
+    @keyframes jumpLeft {
+      0% { transform: translateX(0) rotate(0deg); }
+      50% { transform: translateX(-25px) translateY(-15px) rotate(-5deg); }
+      100% { transform: translateX(0) rotate(0deg); }
+    }
+
+    @keyframes jumpRight {
+      0% { transform: translateX(0) rotate(0deg); }
+      50% { transform: translateX(25px) translateY(-15px) rotate(5deg); }
+      100% { transform: translateX(0) rotate(0deg); }
+    }
+
+    .animate-jump-up { animation: jumpUp 0.35s ease-out forwards; }
+    .animate-jump-down { animation: jumpDown 0.35s ease-out forwards; }
+    .animate-jump-left { animation: jumpLeft 0.35s ease-out forwards; }
+    .animate-jump-right { animation: jumpRight 0.35s ease-out forwards; }
+
+    /* Smooth Transition for Coordinate Moving */
     #noBtn {
-      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: left 0.22s cubic-bezier(0.25, 1, 0.5, 1), 
+                  top 0.22s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
-    /* Cute Tooltip Popup */
-    .floating-tooltip {
-      position: absolute;
-      padding: 6px 14px;
-      background: #881337;
-      color: #fff;
-      font-size: 0.825rem;
-      border-radius: 20px;
-      white-space: nowrap;
-      pointer-events: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      animation: popIn 0.3s ease-out forwards;
-      z-index: 50;
+    /* Mini Toast Notification inside card */
+    .mini-toast {
+      animation: fadeInOut 1.8s ease-in-out forwards;
     }
 
-    @keyframes popIn {
-      0% { opacity: 0; transform: scale(0.5) translateY(10px); }
-      100% { opacity: 1; transform: scale(1) translateY(0); }
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translateY(8px) scale(0.9); }
+      15% { opacity: 1; transform: translateY(0) scale(1); }
+      80% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-8px) scale(0.9); }
     }
   </style>
 </head>
 <body class="flex items-center justify-center p-4 min-h-screen relative overflow-hidden select-none">
 
-  <!-- Floating Hearts Background Container -->
+  <!-- Ambient Hearts Container -->
   <div id="heartContainer" class="fixed inset-0 pointer-events-none z-0"></div>
 
-  <!-- Audio Sound Box Toggle (Web Audio API Synthesized Music Box) -->
-  <button id="musicToggle" onclick="toggleAudio()" class="fixed top-5 right-5 z-50 bg-white/80 hover:bg-white text-rose-600 p-3 rounded-full shadow-lg border border-rose-200 transition-all flex items-center gap-2 text-sm font-medium">
+  <!-- Music Sound Toggle Button -->
+  <button id="musicToggle" onclick="toggleAudio()" class="fixed top-4 right-4 z-50 bg-white/90 hover:bg-white text-rose-600 px-3.5 py-2 rounded-full shadow-md border border-rose-200 transition-all flex items-center gap-2 text-xs sm:text-sm font-semibold">
     <i id="musicIcon" class="fas fa-music text-rose-500 animate-bounce"></i>
-    <span id="musicText" class="hidden sm:inline">Lagu Romantis</span>
+    <span id="musicText">Musik Romantis</span>
   </button>
 
-  <!-- MAIN CARD CONTAINER -->
-  <main class="relative z-10 w-full max-w-lg">
+  <!-- MAIN APP CONTAINER (MOBILE OPTIMIZED) -->
+  <main class="relative z-10 w-full max-w-md mx-auto">
     
-    <!-- INITIAL QUESTION STATE CARD -->
-    <div id="questionCard" class="glass-card rounded-3xl p-6 sm:p-10 text-center transition-all duration-500 transform scale-100">
+    <!-- QUESTION STATE CARD -->
+    <div id="questionCard" class="glass-card relative rounded-3xl p-6 sm:p-8 text-center transition-all duration-500 transform scale-100 min-h-[480px] flex flex-col justify-between overflow-hidden">
       
-      <!-- Top Animated Illustration -->
-      <div class="relative w-28 h-28 mx-auto mb-6 flex items-center justify-center bg-rose-100 rounded-full shadow-inner">
-        <i class="fas fa-heart text-rose-500 text-5xl animate-pulse"></i>
-        <span class="absolute -top-1 -right-1 bg-rose-500 text-white text-xs px-2 py-0.5 rounded-full shadow">
-          Istriku
-        </span>
+      <div>
+        <!-- Animated Heart Icon -->
+        <div class="relative w-20 h-20 mx-auto mb-4 flex items-center justify-center bg-rose-100 rounded-full shadow-inner">
+          <i class="fas fa-heart-pulse text-rose-500 text-4xl animate-pulse"></i>
+          <span class="absolute -top-1 -right-1 bg-rose-600 text-white text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full font-bold shadow">
+            Ayu Amalia
+          </span>
+        </div>
+
+        <!-- Header Subtitle -->
+        <p class="text-[11px] uppercase tracking-widest font-bold text-rose-500 mb-1">
+          Surat Ajakan Etot Untuk Istriku
+        </p>
+
+        <!-- Subtitle Name -->
+        <h2 class="font-serif-title text-3xl font-extrabold text-rose-950 mb-3">
+          Ayu Amalia ✨
+        </h2>
+
+        <!-- The Big Romantic Question -->
+        <p class="text-gray-800 text-base sm:text-lg font-bold mb-4 leading-relaxed">
+          Nanti malem mau etot gak? ❤️
+        </p>
+
+        <!-- Mini Toast Message Container -->
+        <div id="toastContainer" class="h-6 mb-2 flex items-center justify-center"></div>
       </div>
 
-      <!-- Header Title -->
-      <h1 class="font-serif-title text-2xl sm:text-3xl font-bold text-rose-950 mb-3 leading-snug">
-        Enak-enak yuk
-      </h1>
-      
-      <!-- Subtitle Name -->
-      <div class="inline-block bg-rose-100 text-rose-700 font-semibold px-4 py-1 rounded-full text-base sm:text-lg mb-6 shadow-sm border border-rose-200">
-        ✨ Ayu Amalia ✨
-      </div>
-
-      <!-- The Big Question -->
-      <p class="text-gray-700 text-lg sm:text-xl font-medium mb-8 leading-relaxed">
-        Aa mau tanya sesuatu nih...<br>
-        <span class="text-rose-600 font-bold">Malam ini mau etot gak?</span> 🥺❤️
-      </p>
-
-      <!-- Interactive Choice Buttons -->
-      <div id="buttonArea" class="relative min-h-[120px] flex flex-col sm:flex-row items-center justify-center gap-4">
+      <!-- MAIN ACTION AREA -->
+      <div class="flex flex-col items-center justify-center gap-4 my-auto pb-4">
         
-        <!-- Primary Yes Button (High Contrast & Glowing) -->
-        <button id="yesBtn" onclick="handleYesClick()" class="pulse-heart w-full sm:w-auto bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-700 hover:to-red-700 text-white font-extrabold text-lg px-8 py-4 rounded-full shadow-2xl border-2 border-white transition-all duration-300 transform active:scale-95 flex items-center justify-center gap-2">
+        <!-- Primary Yes Button -->
+        <button id="yesBtn" onclick="handleYesClick()" class="pulse-glow z-20 w-full max-w-[240px] bg-gradient-to-r from-rose-600 via-red-600 to-rose-700 hover:from-rose-700 hover:to-red-700 text-white font-extrabold text-base px-6 py-3.5 rounded-full shadow-lg border-2 border-white transition-all duration-300 active:scale-95 flex items-center justify-center gap-2">
           <i class="fas fa-heart text-amber-300"></i>
-          <span>Etot dong ❤️</span>
+          <span>Etot dong! ❤️</span>
         </button>
 
-        <!-- Evasive No Button (High Contrast & Visible) -->
-        <button id="noBtn" class="w-full sm:w-auto bg-white hover:bg-rose-50 text-rose-800 font-bold border-2 border-rose-400 px-7 py-3.5 rounded-full shadow-lg transition-all duration-200 flex items-center justify-center gap-2">
+        <!-- Evasive Jump-Dodge No Button -->
+        <button id="noBtn" class="z-30 bg-white hover:bg-rose-50 text-rose-700 font-extrabold border-2 border-rose-400 px-6 py-2.5 rounded-full shadow-md text-sm cursor-pointer flex items-center justify-center gap-1.5 whitespace-nowrap">
           <span>Enggak 😜</span>
         </button>
 
       </div>
 
-      <!-- Footer Microtext -->
-      <p class="text-xs text-rose-400 mt-8 italic">
-        Dibuat oleh Suamimu (Rizki Nugraha) 🥰
+      <!-- Footer Sign-off -->
+      <p class="text-xs text-rose-400 italic font-medium pt-2">
+        Dari Suamimu Tersayang (Rizki Nugraha) 🥰
       </p>
 
     </div>
 
-    <!-- SUCCESS LOVE LETTER CARD (Hidden Initially) -->
-    <div id="letterCard" class="hidden glass-card rounded-3xl p-6 sm:p-10 text-center transition-all duration-700 opacity-0 transform scale-90">
+    <!-- LOVE LETTER SUCCESS CARD (Hidden initially) -->
+    <div id="letterCard" class="hidden glass-card rounded-3xl p-6 sm:p-8 text-center transition-all duration-700 opacity-0 transform scale-90">
       
-      <!-- Header Badge -->
-      <div class="inline-flex items-center gap-2 bg-rose-500 text-white px-4 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 shadow">
-        <i class="fas fa-envelope-open-heart"></i> Ajakan etot
+      <!-- Top Badge -->
+      <div class="inline-flex items-center gap-1.5 bg-rose-500 text-white px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 shadow">
+        <i class="fas fa-envelope-open-heart"></i> Surat Ajakan Etot Untuk Istriku
       </div>
 
       <!-- Letter Title -->
-      <h2 class="font-serif-title text-2xl sm:text-3xl font-extrabold text-rose-950 mb-2">
-        Makasih ya, Sayang! ❤️
+      <h2 class="font-serif-title text-2xl font-extrabold text-rose-950 mb-1">
+        Untuk
       </h2>
-      <p class="font-handwriting text-2xl text-rose-600 mb-6">
-        Istriku, Ayu Amalia
+      <p class="font-handwriting text-2xl text-rose-600 mb-4">
+        Istriku sayang
       </p>
 
-      <!-- Written Heartfelt Letter -->
-      <div class="text-left bg-white/70 p-5 sm:p-6 rounded-2xl border border-rose-100 shadow-inner space-y-4 text-gray-700 text-sm sm:text-base leading-relaxed mb-6 max-h-[50vh] overflow-y-auto">
+      <!-- Heartfelt Husband-Wife Love Letter -->
+      <div class="text-left bg-white/90 p-4 sm:p-5 rounded-2xl border border-rose-100 shadow-inner space-y-3 text-gray-700 text-xs sm:text-sm leading-relaxed mb-5 max-h-[45vh] overflow-y-auto">
         <p>
-          <strong>Mantap,</strong>
-        </p>
-        <p>
-          jangan lupa, kamu harus pake baju seksi.
+          <strong>Baca baik-baik ya</strong>
         </p>
         <p>
-          kalo aa ketiduran, bangunin dong.
+          Jangan lupa pake baju dinasnya
         </p>
         <p>
-          Semoga etot kita berjalan lancar.
+          Kalo aa ketiduran, bangunin ya
         </p>
-        <p class="font-semibold text-rose-700 pt-2">
-          ah..ah..crott ❤️✨
+        <p>
+          Semoga etot kita nanti malam berjalan dengan lancar
         </p>
-        <div class="text-right pt-2">
-          <span class="font-handwriting text-xl text-rose-600 font-bold block">
-            Suamimu yang selalu mencintaimu,
+        <div class="text-right pt-3 border-t border-rose-100">
+          <span class="font-handwriting text-2xl text-rose-600 font-bold block">
+            lofyu,
           </span>
-          <span class="text-xs text-gray-500 font-sans">Rizki ❤️</span>
+          <span class="text-[10px] text-gray-500 font-semibold uppercase tracking-wider block mt-0.5">
+            Suamimu (Rizki Nugraha) ❤️
+          </span>
         </div>
       </div>
 
-      <!-- Action Buttons -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-        <button onclick="triggerLoveExplosion()" class="w-full sm:w-auto bg-rose-500 hover:bg-rose-600 text-white font-medium px-6 py-2.5 rounded-full shadow-lg transition-all flex items-center justify-center gap-2 text-sm">
+      <!-- Interactive Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-2.5">
+        <button onclick="triggerLoveExplosion()" class="w-full sm:w-auto bg-rose-600 hover:bg-rose-700 text-white font-bold px-5 py-2.5 rounded-full shadow-md transition-all flex items-center justify-center gap-2 text-xs">
           <i class="fas fa-heart text-amber-300"></i>
-          <span>Kirim Hujan Cinta Lagi!</span>
+          <span>Muncratkan Lagi!</span>
         </button>
-        <button onclick="resetView()" class="w-full sm:w-auto bg-rose-100 hover:bg-rose-200 text-rose-700 font-medium px-5 py-2.5 rounded-full transition-all text-sm">
+        <button onclick="resetView()" class="w-full sm:w-auto bg-rose-100 hover:bg-rose-200 text-rose-800 font-bold px-4 py-2.5 rounded-full transition-all text-xs">
           <i class="fas fa-redo"></i>
-          <span>Ulangi dari Awal</span>
+          <span>Ulangi lagi</span>
         </button>
       </div>
 
@@ -237,140 +261,145 @@
     ========================================================== */
     function createAmbientHearts() {
       const container = document.getElementById('heartContainer');
-      const heartIcons = ['fa-heart', 'fa-heart text-pink-400', 'fa-heart text-rose-300'];
-      const heartCount = 18;
+      const heartIcons = ['fa-heart', 'fa-heart text-pink-400', 'fa-heart text-rose-400'];
+      const heartCount = 14;
 
       for (let i = 0; i < heartCount; i++) {
         const heart = document.createElement('i');
         const randomIcon = heartIcons[Math.floor(Math.random() * heartIcons.length)];
-        heart.className = `fas ${randomIcon} bg-heart`;
+        heart.className = 'fas ' + randomIcon + ' bg-heart';
         
-        // Randomize positioning & size
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.animationDuration = (Math.random() * 6 + 6) + 's';
-        heart.style.animationDelay = (Math.random() * 5) + 's';
-        heart.style.fontSize = (Math.random() * 1.5 + 0.8) + 'rem';
+        heart.style.left = (Math.random() * 100) + 'vw';
+        heart.style.animationDuration = (Math.random() * 5 + 6) + 's';
+        heart.style.animationDelay = (Math.random() * 4) + 's';
+        heart.style.fontSize = (Math.random() * 1.2 + 0.7) + 'rem';
         
         container.appendChild(heart);
       }
     }
 
     /* ==========================================================
-       2. EVASIVE "ENGGAK" BUTTON LOGIC (SHORT DISTANCE JUMP)
+       2. EVASIVE "ENGGAK" BUTTON WITH ACROSS-CARD JUMP
     ========================================================== */
     const noBtn = document.getElementById('noBtn');
+    const questionCard = document.getElementById('questionCard');
     let noClickAttempts = 0;
 
     const cuteMessages = [
-      "Eits gak bisa! 😜",
-      "jangan pilih ini 😁",
-      "Masih coba lagi? Pilih 'etot' dong!",
-      "udah, pilih etot aja🥺",
-      "Tetep gak bisa dipencet wlee 😛",
-      "Harus etot! ❤️"
+      "Eits, loncat! 😜",
+      "Nggak bisa dipencet 😛",
+      "Pilih 'etot!' dong ❤️",
+      "AA gak terima jawaban ini 🥺",
+      "Tombolnya loncat-loncat terus! 😂",
+      "Harus pencet yang etot! ❤️"
     ];
 
+    function setupNoButtonPosition() {
+      noBtn.style.position = 'absolute';
+      const cardWidth = questionCard.clientWidth;
+      const cardHeight = questionCard.clientHeight;
+      noBtn.style.left = ((cardWidth - noBtn.offsetWidth) / 2) + 'px';
+      noBtn.style.top = (cardHeight - noBtn.offsetHeight - 55) + 'px';
+    }
+
     function moveNoButton(e) {
-      if (e) e.preventDefault();
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
 
       noClickAttempts++;
 
-      // Make 'Cinta Banget' button grow bigger dynamically
+      // Perbesar tombol "Cinta Banget!" secara bertahap
       const yesBtn = document.getElementById('yesBtn');
       if (yesBtn) {
-        const scale = Math.min(1 + noClickAttempts * 0.08, 1.4);
-        yesBtn.style.transform = `scale(${scale})`;
+        const scale = Math.min(1 + noClickAttempts * 0.05, 1.25);
+        yesBtn.style.transform = 'scale(' + scale + ')';
       }
 
-      // Get current button coordinates
-      const rect = noBtn.getBoundingClientRect();
-      const currentX = rect.left;
-      const currentY = rect.top;
+      // Hitung batas-batas pergerakan di dalam Kartu Utama (Question Card)
+      const padding = 16;
+      const cardWidth = questionCard.clientWidth;
+      const cardHeight = questionCard.clientHeight;
+      const btnWidth = noBtn.offsetWidth;
+      const btnHeight = noBtn.offsetHeight;
 
-      // Limit jump distance to max 80px - 130px in a random angle (so it stays close)
-      const maxDistance = 120;
-      const minDistance = 70;
-      const angle = Math.random() * Math.PI * 2;
-      const distance = minDistance + Math.random() * (maxDistance - minDistance);
+      const minX = padding;
+      const maxX = cardWidth - btnWidth - padding;
+      const minY = padding; // Bisa loncat sampai atas (menutupi judul)
+      const maxY = cardHeight - btnHeight - padding; // Mentok bawah
 
-      let newX = currentX + Math.cos(angle) * distance;
-      let newY = currentY + Math.sin(angle) * distance;
+      // Tentukan posisi acak baru di dalam kartu
+      let newLeft = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
+      let newTop = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
 
-      // Keep within screen boundaries with padding
-      const padding = 20;
-      const maxX = window.innerWidth - noBtn.offsetWidth - padding;
-      const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+      const currentLeft = noBtn.offsetLeft;
+      const currentTop = noBtn.offsetTop;
 
-      newX = Math.max(padding, Math.min(newX, maxX));
-      newY = Math.max(padding, Math.min(newY, maxY));
+      // Pilih animasi loncat berdasarkan arah perpindahan
+      noBtn.classList.remove('animate-jump-up', 'animate-jump-down', 'animate-jump-left', 'animate-jump-right');
+      void noBtn.offsetWidth; // Refresh animasi
 
-      noBtn.style.position = 'fixed';
-      noBtn.style.left = `${newX}px`;
-      noBtn.style.top = `${newY}px`;
+      if (Math.abs(newTop - currentTop) > Math.abs(newLeft - currentLeft)) {
+        if (newTop < currentTop) noBtn.classList.add('animate-jump-up');
+        else noBtn.classList.add('animate-jump-down');
+      } else {
+        if (newLeft < currentLeft) noBtn.classList.add('animate-jump-left');
+        else noBtn.classList.add('animate-jump-right');
+      }
 
-      // Show cute floating tooltip message near new position
-      showTooltip(newX, newY, cuteMessages[noClickAttempts % cuteMessages.length]);
+      // Terapkan koordinat baru
+      noBtn.style.left = newLeft + 'px';
+      noBtn.style.top = newTop + 'px';
+
+      // Tampilkan pesan mini
+      showMiniToast(cuteMessages[noClickAttempts % cuteMessages.length]);
     }
 
-    function showTooltip(x, y, text) {
-      // Remove previous tooltips
-      const oldTooltip = document.querySelector('.floating-tooltip');
-      if (oldTooltip) oldTooltip.remove();
+    function showMiniToast(text) {
+      const toastContainer = document.getElementById('toastContainer');
+      toastContainer.innerHTML = '';
 
-      const tooltip = document.createElement('div');
-      tooltip.className = 'floating-tooltip';
-      tooltip.innerText = text;
-      
-      // Position above the evasive button
-      tooltip.style.left = `${x}px`;
-      tooltip.style.top = `${y - 35}px`;
+      const toast = document.createElement('span');
+      toast.className = 'mini-toast bg-rose-100 text-rose-800 text-xs font-bold px-3 py-1 rounded-full shadow-sm border border-rose-200';
+      toast.innerText = text;
 
-      document.body.appendChild(tooltip);
-
-      setTimeout(() => {
-        if (tooltip) tooltip.remove();
-      }, 1800);
+      toastContainer.appendChild(toast);
     }
 
-    // Attach hover and touch events for both Desktop & Mobile
-    noBtn.addEventListener('mouseover', moveNoButton);
-    noBtn.addEventListener('touchstart', moveNoButton);
+    // Pasang listener untuk layar sentuh maupun mouse
+    noBtn.addEventListener('mouseenter', moveNoButton);
+    noBtn.addEventListener('touchstart', moveNoButton, { passive: false });
     noBtn.addEventListener('click', moveNoButton);
 
     /* ==========================================================
-       3. SUCCESS STATE ("CINTA BANGET") & CONFETTI
+       3. SUCCESS HANDLER & CONFETTI EXPLOSION
     ========================================================== */
     function handleYesClick() {
       const questionCard = document.getElementById('questionCard');
       const letterCard = document.getElementById('letterCard');
 
-      // Remove active tooltips if any
-      const tooltip = document.querySelector('.floating-tooltip');
-      if (tooltip) tooltip.remove();
-
       // Fade out question card
       questionCard.classList.add('opacity-0', 'scale-90');
 
-      setTimeout(() => {
+      setTimeout(function() {
         questionCard.classList.add('hidden');
         letterCard.classList.remove('hidden');
 
-        // Trigger smooth fade-in for letter
-        setTimeout(() => {
+        setTimeout(function() {
           letterCard.classList.remove('opacity-0', 'scale-90');
           letterCard.classList.add('opacity-100', 'scale-100');
         }, 50);
 
       }, 400);
 
-      // Trigger grand confetti & music
+      // Trigger Confetti explosion & Music
       triggerLoveExplosion();
       startMusicBox();
     }
 
     function triggerLoveExplosion() {
-      // Confetti burst from bottom corners
-      const duration = 3 * 1000;
+      const duration = 2.5 * 1000;
       const end = Date.now() + duration;
 
       (function frame() {
@@ -396,30 +425,27 @@
     }
 
     /* ==========================================================
-       4. RESET FUNCTIONALITY
+       4. RESET STATE
     ========================================================== */
     function resetView() {
       const questionCard = document.getElementById('questionCard');
       const letterCard = document.getElementById('letterCard');
 
-      // Reset Evasive Button Position & Yes Button scale
-      noBtn.style.position = 'relative';
-      noBtn.style.left = 'auto';
-      noBtn.style.top = 'auto';
       noClickAttempts = 0;
 
       const yesBtn = document.getElementById('yesBtn');
       if (yesBtn) yesBtn.style.transform = 'scale(1)';
 
-      // Transition Back
       letterCard.classList.remove('opacity-100', 'scale-100');
       letterCard.classList.add('opacity-0', 'scale-90');
 
-      setTimeout(() => {
+      setTimeout(function() {
         letterCard.classList.add('hidden');
         questionCard.classList.remove('hidden');
 
-        setTimeout(() => {
+        setupNoButtonPosition();
+
+        setTimeout(function() {
           questionCard.classList.remove('opacity-0', 'scale-90');
           questionCard.classList.add('opacity-100', 'scale-100');
         }, 50);
@@ -434,7 +460,6 @@
     let isPlayingAudio = false;
     let musicInterval = null;
 
-    // Romantic music scale notes (Hz)
     const notes = [261.63, 329.63, 392.00, 523.25, 440.00, 349.23, 329.63, 293.66];
 
     function playMusicNote() {
@@ -465,7 +490,7 @@
       if (isPlayingAudio) {
         isPlayingAudio = false;
         clearInterval(musicInterval);
-        document.getElementById('musicText').innerText = "Mutar Musik";
+        document.getElementById('musicText').innerText = "Musik Romantis";
         document.getElementById('musicIcon').classList.remove('animate-bounce');
       } else {
         startMusicBox();
@@ -481,7 +506,7 @@
       }
 
       isPlayingAudio = true;
-      document.getElementById('musicText').innerText = "Musik Dinyalakan ❤️";
+      document.getElementById('musicText').innerText = "Musik Menyala ❤️";
       document.getElementById('musicIcon').classList.add('animate-bounce');
 
       clearInterval(musicInterval);
@@ -489,9 +514,14 @@
       musicInterval = setInterval(playMusicNote, 600);
     }
 
-    // Initialize ambient background hearts on load
+    // Initialize layout on window load
     window.onload = function () {
       createAmbientHearts();
+      setupNoButtonPosition();
+    };
+
+    window.onresize = function () {
+      setupNoButtonPosition();
     };
   </script>
 </body>
